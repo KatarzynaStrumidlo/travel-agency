@@ -12,6 +12,7 @@ describe('Component Hero', () => {
   it('should throw error without required props', () => {
     expect(() => shallow(<Hero />)).toThrow();
   });
+
   it('should render correct title and image', () => {
     const expectedTitle = 'Lorem ipsum';
     const expectedImage = 'image.jpg';
@@ -21,6 +22,7 @@ describe('Component Hero', () => {
     expect(renderedTitle).toEqual(expectedTitle);
     expect(component.find('.image').prop('src')).toEqual(expectedImage);
   });
+
   it('renders correct classNames', () => {
     const mockVariants = 'small dummy';
     const component = shallow(<Hero titleText='Lorem' imageSrc='image.jpg' variant={mockVariants} />);
