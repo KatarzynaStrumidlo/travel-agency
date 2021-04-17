@@ -41,4 +41,8 @@ OrderOptionIcons.propTypes ={
   required: PropTypes.bool,
 };
 
+OrderOptionIcons.defaultProps = {
+  value: 'something',
+};
+
 export default OrderOptionIcons;
