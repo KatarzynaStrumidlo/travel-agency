@@ -15,13 +15,14 @@ describe('Component OrderOption', () => {
     expect(component).toEqual({});
   });
 
-  it('should render correct title', () => { //--------------nie przechodzi
-    const expectedTitle = 'Some Title';
-    const component = shallow(<OrderOption name={expectedTitle} type='Some Type' />);
+  it('should render correct title', () => {
+    const expectedName = 'name';
+    const expectedType = 'text';
+    const component = shallow(<OrderOption name={expectedName} type={expectedType} />);
 
-    const renderedTitle = component.find('.title').at(0).text();
-    expect(renderedTitle).toBe(expectedTitle);
+    expect(component.find('.title').text()).toEqual(expectedName);
   });
+
 
   const optionTypes = {
     checkboxes: 'OrderOptionCheckboxes',
@@ -117,7 +118,7 @@ describe('Component OrderOption', () => {
             expect(datePicker.length).toBe(1);
           });
 
-          it('should run setOrderOption function on change', () => { // --------------nie przechodzi
+          it('should run setOrderOption function on change', () => {
             renderedSubcomponent.find(DatePicker).simulate('change', testValue);
             expect(mockSetOrderOption).toBeCalledTimes(1);
             expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue});
@@ -159,7 +160,7 @@ describe('Component OrderOption', () => {
             expect(options.at(0).prop('name')).toBe(mockProps.values[0].icon);
             expect(options.at(1).prop('name')).toBe(mockProps.values[1].icon);
           });
-          it('should run setOrderOption function on click', () => { // ----------------------nie przechodzi
+          it('should run setOrderOption function on click', () => {
             renderedSubcomponent.find('div .icon').last().simulate('click');
             expect(mockSetOrderOption).toBeCalledTimes(1);
             expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
