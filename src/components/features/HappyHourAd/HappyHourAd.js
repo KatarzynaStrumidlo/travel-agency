@@ -22,11 +22,11 @@ class HappyHourAd extends React.Component {
     return Math.round((nextNoon.getTime() - currentTime.getTime())/1000);
   }
 
-  /* getDescription (argTime){
-    if (argTime > 23 * 60 * 60) {
+  /* getDescription (time){
+    if (time > 23 * 60 * 60) {
       return 'It is Happy Hour';
     } else {
-      return argTime;
+      return null;
     }
   } */
 
@@ -34,9 +34,9 @@ class HappyHourAd extends React.Component {
     const {title} = this.props;
     const {time} = this.getCountdownTime();
     return (
-      <div>
+      <div className={styles.component}>
         <h3 className={styles.title}>{title}</h3>
-        <div className='promoDescription'>{time}</div>
+        <div className={styles.promoDescription}>{time}</div>
       </div>
     );
   }
@@ -45,7 +45,6 @@ class HappyHourAd extends React.Component {
 HappyHourAd.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  getDescription: PropTypes.func,
 };
 
 export default HappyHourAd;
