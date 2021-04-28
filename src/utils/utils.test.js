@@ -1,4 +1,5 @@
 import { formatTime } from './formatTime';
+import {promoPrice} from './promoPrice';
 
 describe('utils', () => {
   describe('formatTime', () => {
@@ -24,5 +25,15 @@ describe('utils', () => {
       expect(formatTime(3604)).toBe('01:00:04');
     });
 
+  });
+
+  describe('promoPrice', () => {
+    it('should count price while HappyHour', () => {
+      expect(promoPrice(200, 20)).toBe(160);
+      expect(promoPrice(29318.86, 20)).toBe(23455.088);
+      expect(promoPrice('$200', 20)).toBe('$160');
+      expect(promoPrice('$29318.86', 20)).toBe('$23455.088');
+
+    });
   });
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import TripSummary from './TripSummary';
+import {promoPrice} from '../../../utils/promoPrice';
 
 describe('Component TripSummary', () => {
   it('should render link to the correct address', () => {
@@ -28,7 +29,7 @@ describe('Component TripSummary', () => {
 
     expect(component.find('.details').childAt(0).text()).toEqual(`${expectedDays} days`);
     expect(component.find('.title').text()).toEqual(expectedName);
-    expect(component.find('.details').childAt(1).text()).toEqual(`from ${expectedCost}`);
+    expect(component.find('.details').childAt(1).text()).toEqual(`Happy Hour price from ${promoPrice(expectedCost, 20)}`);
   });
 
   it('should render array with elements in right order', () => {
