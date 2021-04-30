@@ -13,7 +13,7 @@ const TripSummary = ({id, image, name, cost, days, tags}) => (
         <h3 className={styles.title}>{name}</h3>
         <div className={styles.details}>
           <span>{days} days</span>
-          <span>Happy Hour price from {promoPrice(cost, 20)}</span>
+          <span className={styles.happyHour}>Happy Hour price from {promoPrice(cost, 20)}</span>
           <span>Regular price from {cost}</span>
         </div>
         <div className={styles.tags}>

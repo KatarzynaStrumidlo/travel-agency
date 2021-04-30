@@ -32,7 +32,7 @@ describe('utils', () => {
       expect(promoPrice(200, 20)).toBe(160);
       expect(promoPrice(29318.86, 20)).toBe(23455.088);
       expect(promoPrice('$200', 20)).toBe('$160');
-      expect(promoPrice('$29318.86', 20)).toBe('$23455.088');
+      expect(promoPrice('$29318.86', 20)).toBe('$23,456');
 
     });
   });
